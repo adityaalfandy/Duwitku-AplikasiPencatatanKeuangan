@@ -12,17 +12,18 @@
 | M3 Form Transaksi | [~] | M3a (Komponen UI Form) selesai. Siap lanjut M3b (ViewModel). |
 | M4 Daftar & Detail | [ ] | |
 | M5 Beranda | [ ] | |
-| M6 Statistik | [ ] | |
+| M6 Statistik | [~] | M6a selesai (GetCategoryTotalsUseCase dan logika persentase). |
 | M7 Kurs | [x] | Selesai (M7a dan M7b). Layar Kurs sudah terintegrasi dan bisa dikonversi secara real-time berdasarkan data API. |
 | M8 Polishing | [ ] | |
 
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M7b (Integrasi UI Kurs: RatesUiState, RatesViewModel, RatesScreen). Layar kurs sudah menempati placeholder.
-- Berhenti di: Build `assembleDebug` dan Unit Test M7b sukses (String.format locale-independent).
-- File terakhir diubah: `RatesScreen.kt`, `RatesViewModel.kt`, `RatesUiState.kt`, `DuwitkuNavHost.kt`, `CurrencyFormatter.kt`, `RatesViewModelTest.kt`, komponen empty/loading/error.
-- Build terakhir: SUKSES (0 errors).
+- Sub-task: Selesai M6a dan Use Case Domain. Menambahkan `GetMonthSummaryUseCase`, `GetTotalBalanceUseCase`, `GetCategoryTotalsUseCase` (M6a), `FilterTransactionsUseCase` (M4), `GroupTransactionsByDateUseCase` (M4/M5) dan `DateGroup` model.
+- Berhenti di: Build `test` sukses.
+- File terakhir diubah: 5 file Use Case murni Kotlin di `domain/usecase/` dan 5 file Unit Test JUnit4.
+- Build terakhir: SUKSES (40 tes lulus, 0 gagal).
+- Keputusan penting: Kategori kosong tidak dimasukkan di hasil, persen adalah `0f..1f`, dan pengelompokan memelihara urutan input untuk meminimalisir bug.
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`

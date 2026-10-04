@@ -8,7 +8,7 @@
 |-----------|--------|---------|
 | M0 Persiapan | [ ] | |
 | M1 Fondasi | [~] | M1a, M1b, M1c selesai. Build sukses. (Placeholder layar masih kosong, tapi fungsional navigasi berjalan). |
-| M2 Domain & Data | [~] | M2a (Model domain, formatter, test) selesai. Siap lanjut M2b (Room). |
+| M2 Domain & Data | [x] | M2a (model, formatter), M2b (Room: Entity, DAO, Database, DatabaseModule), M2c (TransactionMapper, TransactionRepository, TransactionRepositoryImpl, RepositoryModule binding) selesai. |
 | M3 Form Transaksi | [~] | M3a (Komponen UI Form) selesai. Siap lanjut M3b (ViewModel). |
 | M4 Daftar & Detail | [ ] | |
 | M5 Beranda | [ ] | |
@@ -19,11 +19,11 @@
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M6a dan Use Case Domain. Menambahkan `GetMonthSummaryUseCase`, `GetTotalBalanceUseCase`, `GetCategoryTotalsUseCase` (M6a), `FilterTransactionsUseCase` (M4), `GroupTransactionsByDateUseCase` (M4/M5) dan `DateGroup` model.
-- Berhenti di: Build `test` sukses.
-- File terakhir diubah: 5 file Use Case murni Kotlin di `domain/usecase/` dan 5 file Unit Test JUnit4.
-- Build terakhir: SUKSES (40 tes lulus, 0 gagal).
-- Keputusan penting: Kategori kosong tidak dimasukkan di hasil, persen adalah `0f..1f`, dan pengelompokan memelihara urutan input untuk meminimalisir bug.
+- Sub-task: Selesai M2b (Room) dan M2c (Repository transaksi). Entity, DAO, Database, DatabaseModule, TransactionMapper, TransactionRepositoryImpl, dan unit test.
+- Berhenti di: Build `test assembleDebug` sukses.
+- File terakhir diubah: `data/local/` (3 file), `di/DatabaseModule.kt`, `data/mapper/TransactionMapper.kt`, `data/repository/TransactionRepositoryImpl.kt`, `domain/repository/TransactionRepository.kt`, `di/RepositoryModule.kt`, 2 file test.
+- Build terakhir: SUKSES (semua test lulus, 0 gagal).
+- Keputusan: type/category disimpan sebagai String (tanpa TypeConverter); entity dengan type tidak dikenal dilewati (mapNotNull); category mismatch di-fallback ke OTHER_EXPENSE/OTHER_INCOME; save edit mempertahankan createdAt asli; DAO divalidasi lewat kompilasi KSP, test nyata via layar Form (M3c).
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`
@@ -43,3 +43,6 @@ Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 - `ui/components/TypeToggle.kt`, `AmountTextField.kt`, `CategoryPicker.kt`, `DatePickerField.kt`, `DuwitkuTopBar.kt`, `FormComponentsPreview.kt`
 - `data/remote/RateApi.kt`, `di/NetworkModule.kt`, `domain/repository/RateRepository.kt`
 - `ui/feature/rates/RatesScreen.kt`, `RatesViewModel.kt`, `RatesUiState.kt`
+- `data/local/TransactionEntity.kt`, `TransactionDao.kt`, `DuwitkuDatabase.kt`
+- `di/DatabaseModule.kt`, `data/mapper/TransactionMapper.kt`
+- `data/repository/TransactionRepositoryImpl.kt`, `domain/repository/TransactionRepository.kt`

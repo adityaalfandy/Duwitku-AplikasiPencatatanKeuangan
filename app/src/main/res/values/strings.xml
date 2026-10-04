@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Duwitku</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_home">Beranda</string>
+    <string name="nav_transactions">Transaksi</string>
+    <string name="nav_stats">Statistik</string>
+    <string name="nav_rates">Kurs</string>
+
+    <!-- Judul layar -->
+    <string name="title_home_greeting">Halo! 👋</string>
+    <string name="title_add_transaction">Tambah Transaksi</string>
+    <string name="title_edit_transaction">Edit Transaksi</string>
+    <string name="title_transaction_detail">Detail Transaksi</string>
+    <string name="title_stats">Statistik</string>
+    <string name="title_rates">Kurs &amp; Konverter</string>
+
+    <!-- Tipe transaksi -->
+    <string name="type_income">Pemasukan</string>
+    <string name="type_expense">Pengeluaran</string>
+
+    <!-- Kategori pengeluaran -->
+    <string name="category_food">Makan</string>
+    <string name="category_transport">Transport</string>
+    <string name="category_shopping">Belanja</string>
+    <string name="category_bills">Tagihan</string>
+    <string name="category_entertainment">Hiburan</string>
+    <string name="category_health">Kesehatan</string>
+    <string name="category_education">Pendidikan</string>
+    <string name="category_other_expense">Lainnya</string>
+
+    <!-- Kategori pemasukan -->
+    <string name="category_allowance">Uang Saku</string>
+    <string name="category_salary">Gaji</string>
+    <string name="category_bonus">Bonus</string>
+    <string name="category_other_income">Lainnya</string>
+
+    <!-- Beranda -->
+    <string name="home_balance_label">Saldo kamu</string>
+    <string name="home_income_this_month">Pemasukan bulan ini</string>
+    <string name="home_expense_this_month">Pengeluaran bulan ini</string>
+    <string name="home_add_income">+ Pemasukan</string>
+    <string name="home_add_expense">+ Pengeluaran</string>
+    <string name="home_recent_transactions">Transaksi terbaru</string>
+    <string name="home_see_all">Lihat semua</string>
+
+    <!-- Empty / Error / Loading -->
+    <string name="empty_no_transactions">Belum ada transaksi.\nYuk catat yang pertama!</string>
+    <string name="empty_no_filter_results">Tidak ada transaksi yang cocok.</string>
+    <string name="empty_no_expenses_this_month">Belum ada pengeluaran bulan ini.</string>
+    <string name="error_generic">Terjadi kesalahan. Coba lagi ya.</string>
+    <string name="error_no_internet">Tidak bisa memuat kurs.\nCek koneksi internetmu.</string>
+    <string name="error_timeout">Koneksi terlalu lama.\nCoba lagi ya.</string>
+    <string name="error_server">Layanan kurs sedang bermasalah.\nCoba lagi nanti.</string>
+    <string name="error_invalid_data">Data kurs tidak valid.</string>
+    <string name="action_retry">Coba lagi</string>
+
+    <!-- Form transaksi -->
+    <string name="form_amount_label">Nominal</string>
+    <string name="form_amount_prefix">Rp</string>
+    <string name="form_category_label">Kategori</string>
+    <string name="form_date_label">Tanggal</string>
+    <string name="form_note_label">Catatan</string>
+    <string name="form_note_hint">Opsional, maks 100 karakter</string>
+    <string name="form_save">Simpan</string>
+
+    <!-- Pesan validasi -->
+    <string name="validation_amount_required">Nominal harus lebih dari 0</string>
+    <string name="validation_amount_max">Nominal terlalu besar</string>
+    <string name="validation_category_required">Pilih kategori dulu ya</string>
+    <string name="validation_date_future">Tanggal tidak boleh di masa depan</string>
+    <string name="validation_note_max">Maksimal 100 karakter</string>
+
+    <!-- Detail transaksi -->
+    <string name="detail_edit">Edit</string>
+    <string name="detail_delete">Hapus</string>
+
+    <!-- Dialog konfirmasi -->
+    <string name="dialog_delete_title">Hapus transaksi?</string>
+    <string name="dialog_delete_message">Yakin mau hapus transaksi ini?</string>
+    <string name="dialog_delete_confirm">Hapus</string>
+    <string name="dialog_cancel">Batal</string>
+    <string name="action_select">Pilih</string>
+
+    <!-- Pesan sukses -->
+    <string name="success_saved">Berhasil disimpan 🎉</string>
+    <string name="success_deleted">Transaksi dihapus.</string>
+
+    <!-- Statistik -->
+    <string name="stats_total_expense">Total pengeluaran</string>
+
+    <!-- Kurs -->
+    <string name="rates_input_label">Nominal Rupiah</string>
+    <string name="rates_last_updated">Diperbarui: %1$s</string>
+    <string name="rates_refresh">Muat ulang</string>
+    <string name="currency_usd">Dolar Amerika Serikat</string>
+    <string name="currency_eur">Euro</string>
+    <string name="currency_sgd">Dolar Singapura</string>
+    <string name="currency_jpy">Yen Jepang</string>
+    <string name="currency_myr">Ringgit Malaysia</string>
+    <string name="currency_aud">Dolar Australia</string>
+
+    <!-- Pencarian -->
+    <string name="search_hint">Cari catatan…</string>
+
+    <!-- Filter -->
+    <string name="filter_all">Semua</string>
+
+    <!-- Navigasi -->
+    <string name="navigate_back">Kembali</string>
+</resources>

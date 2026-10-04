@@ -47,7 +47,13 @@ XML layout, LiveData, RxJava, Gson/Moshi, kapt, library chart/UI pihak ketiga, `
 ```
 
 ## Golden example
-Setelah M3 selesai, pola `ui/feature/form/` menjadi acuan struktur, penamaan, dan gaya untuk fitur lain. Tiru polanya.
+Setelah M3 selesai, pola `ui/feature/form/` menjadi acuan struktur, penamaan, dan gaya untuk fitur lain. Tiru polanya:
+1. Pemisahan `XxxScreen` (stateful, inject ViewModel) dan `XxxContent` (stateless, nerima state & event lambdas).
+2. `UiState` adalah `data class` atau `sealed interface` yang HANYA memuat tipe domain/primitif, bukan string UI atau context.
+3. Validasi input kompleks dipisahkan ke use case Kotlin murni (mis. `ValidateTransactionInputUseCase`).
+4. Semua state UI mengalir dari `_uiState.update {}` secara fungsional di ViewModel.
+5. Pemetaan dari error type ke string resource (pesan ramah pengguna) dilakukan *di dalam* layer UI, misal melalui helper function `@Composable`.
+6. Unit testing ViewModel menguji berbagai interaksi, state perantara, dan dependensi (repositori, clock) dengan Dispatcher Test.
 
 ## Status proyek
 Isi/perbarui bagian ini di akhir tiap sesi:

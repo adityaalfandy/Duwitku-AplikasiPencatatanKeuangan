@@ -9,7 +9,7 @@
 | M0 Persiapan | [ ] | |
 | M1 Fondasi | [~] | M1a, M1b, M1c selesai. Build sukses. (Placeholder layar masih kosong, tapi fungsional navigasi berjalan). |
 | M2 Domain & Data | [x] | M2a (model, formatter), M2b (Room: Entity, DAO, Database, DatabaseModule), M2c (TransactionMapper, TransactionRepository, TransactionRepositoryImpl, RepositoryModule binding) selesai. |
-| M3 Form Transaksi | [~] | M3a (Komponen UI Form) selesai. Siap lanjut M3b (ViewModel). |
+| M3 Form Transaksi | [x] | M3a, M3b, M3c selesai. Layar terhubung dengan NavHost. |
 | M4 Daftar & Detail | [ ] | |
 | M5 Beranda | [ ] | |
 | M6 Statistik | [~] | M6a selesai (GetCategoryTotalsUseCase dan logika persentase). |
@@ -19,11 +19,11 @@
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M2b (Room) dan M2c (Repository transaksi). Entity, DAO, Database, DatabaseModule, TransactionMapper, TransactionRepositoryImpl, dan unit test.
+- Sub-task: Selesai M3c (Layar Form Transaksi dan koneksi Navigasi).
 - Berhenti di: Build `test assembleDebug` sukses.
-- File terakhir diubah: `data/local/` (3 file), `di/DatabaseModule.kt`, `data/mapper/TransactionMapper.kt`, `data/repository/TransactionRepositoryImpl.kt`, `domain/repository/TransactionRepository.kt`, `di/RepositoryModule.kt`, 2 file test.
-- Build terakhir: SUKSES (semua test lulus, 0 gagal).
-- Keputusan: type/category disimpan sebagai String (tanpa TypeConverter); entity dengan type tidak dikenal dilewati (mapNotNull); category mismatch di-fallback ke OTHER_EXPENSE/OTHER_INCOME; save edit mempertahankan createdAt asli; DAO divalidasi lewat kompilasi KSP, test nyata via layar Form (M3c).
+- File terakhir diubah: `ui/feature/form/TransactionFormScreen.kt`, `navigation/DuwitkuNavHost.kt`, `AGENTS.md`.
+- Build terakhir: SUKSES (tes berjalan tanpa gagal, 0 gagal).
+- Keputusan: Pemetaan string error dilakukan dalam bentuk @Composable privat di `TransactionFormScreen.kt`; `DuwitkuNavHost` menggunakan TEMP screen/rute untuk mempermudah uji di emulator sebelum M4/M5 dibuat penuh.
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`
@@ -46,3 +46,5 @@ Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 - `data/local/TransactionEntity.kt`, `TransactionDao.kt`, `DuwitkuDatabase.kt`
 - `di/DatabaseModule.kt`, `data/mapper/TransactionMapper.kt`
 - `data/repository/TransactionRepositoryImpl.kt`, `domain/repository/TransactionRepository.kt`
+- `domain/usecase/ValidateTransactionInputUseCase.kt`
+- `ui/feature/form/TransactionFormUiState.kt`, `TransactionFormViewModel.kt`

@@ -29,6 +29,7 @@ import com.pemmob.duwitku.R
 import com.pemmob.duwitku.domain.repository.TransactionRepository
 import com.pemmob.duwitku.ui.feature.form.TransactionFormScreen
 import com.pemmob.duwitku.ui.feature.rates.RatesScreen
+import com.pemmob.duwitku.ui.feature.transactions.TransactionListScreen
 import com.pemmob.duwitku.ui.theme.LocalSpacing
 import com.pemmob.duwitku.util.CurrencyFormatter
 import com.pemmob.duwitku.util.DateFormatter
@@ -53,14 +54,11 @@ fun DuwitkuNavHost(
             }
         )
         transactionsScreen(
-            onNavigateToForm = {
-                navController.navigate(TransactionFormRoute())
+            onNavigateToForm = { transactionId ->
+                navController.navigate(TransactionFormRoute(transactionId))
             },
             onNavigateToDetail = { transactionId ->
                 navController.navigate(TransactionDetailRoute(transactionId))
-            },
-            onNavigateToEdit = { transactionId ->
-                navController.navigate(TransactionFormRoute(transactionId = transactionId))
             }
         )
         statsScreen()
@@ -95,43 +93,16 @@ private fun NavGraphBuilder.homeScreen(
     }
 }
 
-@HiltViewModel
-class TempTransactionsViewModel @Inject constructor(
-    repository: TransactionRepository
-) : ViewModel() {
-    val transactions = repository.observeAll()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
-}
-
 private fun NavGraphBuilder.transactionsScreen(
-    onNavigateToForm: () -> Unit,
-    onNavigateToDetail: (Long) -> Unit,
-    onNavigateToEdit: (Long) -> Unit
-) {
-    composable<TransactionsRoute> {
-        // TEMP M3c — ganti di M4/M5
-        val viewModel: TempTransactionsViewModel = hiltViewModel()
-        val list by viewModel.transactions.collectAsStateWithLifecycle()
-        
-        Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-            Text("Transactions Placeholder")
-            Button(onClick = onNavigateToForm) { Text("Form tanpa arg") }
-            LazyColumn {
-                items(list, key = { it.id }) { tx ->
-                    val amountStr = CurrencyFormatter.formatRp(tx.amount)
-                    val dateStr = DateFormatter.formatShort(tx.date)
-                    Text(
-                        text = "$amountStr - ${tx.category.name} - $dateStr",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable { onNavigateToEdit(tx.id) } // Edit langsung utk testing form
-                            .padding(8.dp)
-                    )
-                }
+            onNavigateToForm: (Long?) -> Unit,
+            onNavigateToDetail: (Long) -> Unit
+        ) {
+            composable<TransactionsRoute> {
+                TransactionListScreen(
+                    onNavigateToForm = onNavigateToForm
+                )
             }
         }
-    }
-}
 
 private fun NavGraphBuilder.statsScreen() {
     composable<StatsRoute> {

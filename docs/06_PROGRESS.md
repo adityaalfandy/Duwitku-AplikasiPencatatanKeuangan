@@ -10,7 +10,7 @@
 | M1 Fondasi | [~] | M1a, M1b, M1c selesai. Build sukses. (Placeholder layar masih kosong, tapi fungsional navigasi berjalan). |
 | M2 Domain & Data | [x] | M2a (model, formatter), M2b (Room: Entity, DAO, Database, DatabaseModule), M2c (TransactionMapper, TransactionRepository, TransactionRepositoryImpl, RepositoryModule binding) selesai. |
 | M3 Form Transaksi | [x] | M3a, M3b, M3c selesai. Layar terhubung dengan NavHost. |
-| M4 Daftar & Detail | [ ] | |
+| M4 Daftar & Detail | [~] | M4a selesai (Layar Daftar Transaksi dan filter/search). M4b (Detail) belum. |
 | M5 Beranda | [ ] | |
 | M6 Statistik | [~] | M6a selesai (GetCategoryTotalsUseCase dan logika persentase). |
 | M7 Kurs | [x] | Selesai (M7a dan M7b). Layar Kurs sudah terintegrasi dan bisa dikonversi secara real-time berdasarkan data API. |
@@ -19,11 +19,11 @@
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M3c (Layar Form Transaksi dan koneksi Navigasi).
+- Sub-task: Selesai M4a (Layar Daftar Transaksi, EmptyView, ViewModel, Test).
 - Berhenti di: Build `test assembleDebug` sukses.
-- File terakhir diubah: `ui/feature/form/TransactionFormScreen.kt`, `navigation/DuwitkuNavHost.kt`, `AGENTS.md`.
-- Build terakhir: SUKSES (tes berjalan tanpa gagal, 0 gagal).
-- Keputusan: Pemetaan string error dilakukan dalam bentuk @Composable privat di `TransactionFormScreen.kt`; `DuwitkuNavHost` menggunakan TEMP screen/rute untuk mempermudah uji di emulator sebelum M4/M5 dibuat penuh.
+- File terakhir diubah: `TransactionListScreen.kt`, `TransactionListViewModel.kt`, `TransactionItem.kt`, `DuwitkuNavHost.kt`.
+- Build terakhir: SUKSES (88 tes berjalan tanpa gagal).
+- Keputusan: Penggunaan `flatMapLatest` pada `_retryTrigger` di `TransactionListViewModel` agar pemanggilan retry bisa memulai ulang aliran `combine` dengan benar saat terjadi error. `EmptyView` diperbarui untuk menerima judul dan aksi opsional.
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`

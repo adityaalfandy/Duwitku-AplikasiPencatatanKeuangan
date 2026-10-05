@@ -10,7 +10,7 @@
 | M1 Fondasi | [~] | M1a, M1b, M1c selesai. Build sukses. (Placeholder layar masih kosong, tapi fungsional navigasi berjalan). |
 | M2 Domain & Data | [x] | M2a (model, formatter), M2b (Room: Entity, DAO, Database, DatabaseModule), M2c (TransactionMapper, TransactionRepository, TransactionRepositoryImpl, RepositoryModule binding) selesai. |
 | M3 Form Transaksi | [x] | M3a, M3b, M3c selesai. Layar terhubung dengan NavHost. |
-| M4 Daftar & Detail | [~] | M4a selesai (Layar Daftar Transaksi dan filter/search). M4b (Detail) belum. |
+| M4 Daftar & Detail | [x] | M4a (Layar Daftar Transaksi dan filter/search) dan M4b (Detail Transaksi & Hapus) selesai. |
 | M5 Beranda | [ ] | |
 | M6 Statistik | [~] | M6a selesai (GetCategoryTotalsUseCase dan logika persentase). |
 | M7 Kurs | [x] | Selesai (M7a dan M7b). Layar Kurs sudah terintegrasi dan bisa dikonversi secara real-time berdasarkan data API. |
@@ -19,11 +19,11 @@
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M4a (Layar Daftar Transaksi, EmptyView, ViewModel, Test).
+- Sub-task: Selesai M4b (Detail Transaksi, ConfirmDialog, Hapus, dan Unit Test).
 - Berhenti di: Build `test assembleDebug` sukses.
-- File terakhir diubah: `TransactionListScreen.kt`, `TransactionListViewModel.kt`, `TransactionItem.kt`, `DuwitkuNavHost.kt`.
-- Build terakhir: SUKSES (88 tes berjalan tanpa gagal).
-- Keputusan: Penggunaan `flatMapLatest` pada `_retryTrigger` di `TransactionListViewModel` agar pemanggilan retry bisa memulai ulang aliran `combine` dengan benar saat terjadi error. `EmptyView` diperbarui untuk menerima judul dan aksi opsional.
+- File terakhir diubah: `TransactionDetailScreen.kt`, `TransactionDetailViewModel.kt`, `DuwitkuNavHost.kt`, `TransactionDetailViewModelTest.kt`.
+- Build terakhir: SUKSES (93 tes berjalan tanpa gagal).
+- Keputusan: Penggunaan parameter langsung di `TransactionDetailViewModel` (via `SavedStateHandle`) mempermudah testing. Pemanfaatan `backgroundScope.launch` di test untuk trigger StateFlow koleksi dari `stateIn`.
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`

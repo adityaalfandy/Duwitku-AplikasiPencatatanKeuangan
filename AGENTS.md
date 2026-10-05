@@ -57,9 +57,9 @@ Setelah M3 selesai, pola `ui/feature/form/` menjadi acuan struktur, penamaan, da
 
 ## Status proyek
 Isi/perbarui bagian ini di akhir tiap sesi:
-- Milestone selesai: (belum ada yang utuh, progres berjalan)
-- Sedang dikerjakan: M1c (Navigasi & Layar Placeholder)
-- Catatan/keputusan penting: AGP 9.x konflik KSP diatasi dengan `android.disallowKotlinSourceSets=false` di gradle.properties. Hilt compiler memakai `hilt-android-compiler` versi `2.60.1`. Font di-rename ke standar snake_case agar lolos resource compilation.
+- Milestone selesai: M1, M2, M3, M4 (M4a, M4b), M7
+- Sedang dikerjakan: Siap lanjut ke M5 (Layar Beranda)
+- Catatan/keputusan penting: M4b (detail transaksi dan konfirmasi hapus) selesai dan lolos semua 93 unit test. Argumen rute diambil via SavedStateHandle.get<Long>("transactionId"). Intersepsi state null pada saat proses delete agar tidak flash ke NotFound sebelum popBackStack.
 
 ## Lingkungan kerja
 - Kode ditulis lewat agent di Antigravity; aplikasi dijalankan, di-sync, dan diuji manusia di **Android Studio** (proyek yang sama, folder yang sama).

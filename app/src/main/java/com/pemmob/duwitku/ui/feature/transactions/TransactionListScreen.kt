@@ -47,6 +47,7 @@ import com.pemmob.duwitku.util.DateFormatter
 @Composable
 fun TransactionListScreen(
     onNavigateToForm: (transactionId: Long?) -> Unit,
+    onNavigateToDetail: (transactionId: Long) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: TransactionListViewModel = hiltViewModel()
 ) {
@@ -57,7 +58,7 @@ fun TransactionListScreen(
         onTypeFilterChange = viewModel::onTypeFilterChange,
         onQueryChange = viewModel::onQueryChange,
         onRetry = viewModel::onRetry,
-        onTransactionClick = { onNavigateToForm(it) }, // TEMP M4a — ganti ke Detail di M4b
+        onTransactionClick = { onNavigateToDetail(it) },
         onAddClick = { onNavigateToForm(null) },
         modifier = modifier
     )

@@ -74,6 +74,9 @@
     <!-- Detail transaksi -->
     <string name="detail_edit">Edit</string>
     <string name="detail_delete">Hapus</string>
+    <string name="detail_no_note">Tanpa catatan</string>
+    <string name="msg_transaction_not_found">Transaksi tidak ditemukan</string>
+    <string name="msg_delete_failed">Gagal menghapus transaksi</string>
 
     <!-- Dialog konfirmasi -->
     <string name="dialog_delete_title">Hapus transaksi?</string>

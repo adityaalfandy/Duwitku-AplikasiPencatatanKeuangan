@@ -27,6 +27,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.pemmob.duwitku.R
 import com.pemmob.duwitku.domain.repository.TransactionRepository
+import com.pemmob.duwitku.ui.feature.detail.TransactionDetailScreen
 import com.pemmob.duwitku.ui.feature.form.TransactionFormScreen
 import com.pemmob.duwitku.ui.feature.rates.RatesScreen
 import com.pemmob.duwitku.ui.feature.transactions.TransactionListScreen
@@ -99,7 +100,8 @@ private fun NavGraphBuilder.transactionsScreen(
         ) {
             composable<TransactionsRoute> {
                 TransactionListScreen(
-                    onNavigateToForm = onNavigateToForm
+                    onNavigateToForm = onNavigateToForm,
+                    onNavigateToDetail = onNavigateToDetail
                 )
             }
         }
@@ -131,7 +133,10 @@ private fun NavGraphBuilder.transactionDetailScreen(
     onNavigateToEdit: (Long) -> Unit,
 ) {
     composable<TransactionDetailRoute> {
-        PlaceholderScreen(title = stringResource(R.string.title_transaction_detail))
+        TransactionDetailScreen(
+            onNavigateBack = onNavigateBack,
+            onEditClick = onNavigateToEdit
+        )
     }
 }
 

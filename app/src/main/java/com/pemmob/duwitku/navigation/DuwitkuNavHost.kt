@@ -25,10 +25,12 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import com.pemmob.duwitku.R
 import com.pemmob.duwitku.domain.repository.TransactionRepository
 import com.pemmob.duwitku.ui.feature.detail.TransactionDetailScreen
 import com.pemmob.duwitku.ui.feature.form.TransactionFormScreen
+import com.pemmob.duwitku.ui.feature.home.HomeScreen
 import com.pemmob.duwitku.ui.feature.rates.RatesScreen
 import com.pemmob.duwitku.ui.feature.transactions.TransactionListScreen
 import com.pemmob.duwitku.ui.theme.LocalSpacing
@@ -52,6 +54,18 @@ fun DuwitkuNavHost(
         homeScreen(
             onNavigateToForm = { type ->
                 navController.navigate(TransactionFormRoute(type = type))
+            },
+            onNavigateToTransactions = {
+                navController.navigate(TransactionsRoute) {
+                    popUpTo(navController.graph.findStartDestination().id) {
+                        saveState = true
+                    }
+                    launchSingleTop = true
+                    restoreState = true
+                }
+            },
+            onNavigateToDetail = { transactionId ->
+                navController.navigate(TransactionDetailRoute(transactionId))
             }
         )
         transactionsScreen(
@@ -76,21 +90,18 @@ fun DuwitkuNavHost(
     }
 }
 
-// === Placeholder layar — akan diganti di milestone berikutnya ===
-
 private fun NavGraphBuilder.homeScreen(
-    onNavigateToForm: (String) -> Unit
+    onNavigateToForm: (String) -> Unit,
+    onNavigateToTransactions: () -> Unit,
+    onNavigateToDetail: (Long) -> Unit
 ) {
     composable<HomeRoute> {
-        // TEMP M3c — ganti di M4/M5
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxSize().padding(16.dp)
-        ) {
-            Text("Home Placeholder")
-            Button(onClick = { onNavigateToForm("INCOME") }) { Text("+ Pemasukan") }
-            Button(onClick = { onNavigateToForm("EXPENSE") }) { Text("+ Pengeluaran") }
-        }
+        HomeScreen(
+            onAddIncome = { onNavigateToForm("INCOME") },
+            onAddExpense = { onNavigateToForm("EXPENSE") },
+            onSeeAll = onNavigateToTransactions,
+            onTransactionClick = onNavigateToDetail
+        )
     }
 }
 

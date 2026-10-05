@@ -20,4 +20,11 @@ object DateFormatter {
     fun formatShort(date: LocalDate): String {
         return date.format(shortFormatter)
     }
+
+    // Oktober 2026
+    private val monthYearFormatter = DateTimeFormatter.ofPattern("MMMM yyyy", localeId)
+
+    fun formatMonthYear(month: java.time.YearMonth): String {
+        return month.format(monthYearFormatter)
+    }
 }

@@ -11,7 +11,7 @@
 | M2 Domain & Data | [x] | M2a (model, formatter), M2b (Room: Entity, DAO, Database, DatabaseModule), M2c (TransactionMapper, TransactionRepository, TransactionRepositoryImpl, RepositoryModule binding) selesai. |
 | M3 Form Transaksi | [x] | M3a, M3b, M3c selesai. Layar terhubung dengan NavHost. |
 | M4 Daftar & Detail | [x] | M4a (Layar Daftar Transaksi dan filter/search) dan M4b (Detail Transaksi & Hapus) selesai. |
-| M5 Beranda | [ ] | |
+| M5 Beranda | [x] | M5a (HomeUiState, HomeViewModel, Komponen Kartu) dan M5b (HomeScreen, Integrasi Navigasi) selesai. |
 | M6 Statistik | [~] | M6a selesai (GetCategoryTotalsUseCase dan logika persentase). |
 | M7 Kurs | [x] | Selesai (M7a dan M7b). Layar Kurs sudah terintegrasi dan bisa dikonversi secara real-time berdasarkan data API. |
 | M8 Polishing | [ ] | |
@@ -19,11 +19,11 @@
 Status: `[ ]` belum, `[~]` sebagian, `[x]` selesai & sudah dites di emulator.
 
 ## Sedang dikerjakan / titik berhenti terakhir
-- Sub-task: Selesai M4b (Detail Transaksi, ConfirmDialog, Hapus, dan Unit Test).
+- Sub-task: Selesai M5b (Layar Beranda dan penyambungan navigasi).
 - Berhenti di: Build `test assembleDebug` sukses.
-- File terakhir diubah: `TransactionDetailScreen.kt`, `TransactionDetailViewModel.kt`, `DuwitkuNavHost.kt`, `TransactionDetailViewModelTest.kt`.
-- Build terakhir: SUKSES (93 tes berjalan tanpa gagal).
-- Keputusan: Penggunaan parameter langsung di `TransactionDetailViewModel` (via `SavedStateHandle`) mempermudah testing. Pemanfaatan `backgroundScope.launch` di test untuk trigger StateFlow koleksi dari `stateIn`.
+- File terakhir diubah: `DateFormatter.kt`, `DateFormatterTest.kt`, `HomeScreen.kt`, `DuwitkuNavHost.kt`, `06_PROGRESS.md`.
+- Build terakhir: SUKSES (51 tasks, 0 fail).
+- Keputusan: Pemanggilan onSeeAll pada Beranda menggunakan navigasi `TransactionsRoute` dengan `popUpTo(navController.graph.findStartDestination().id) { saveState = true }`, `launchSingleTop = true`, dan `restoreState = true` agar tab state bawah tersinkronisasi. Parameter `message` yang wajib di ErrorView diatasi dengan melewatkan `R.string.error_generic`.
 
 ## Keputusan yang sudah diambil
 - Package = `com.pemmob.duwitku`

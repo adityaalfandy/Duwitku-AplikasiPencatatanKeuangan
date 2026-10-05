@@ -18,4 +18,10 @@ class DateFormatterTest {
         val date = LocalDate.of(2026, 10, 4)
         assertEquals("4 Okt", DateFormatter.formatShort(date))
     }
+
+    @Test
+    fun formatMonthYear_formatsCorrectly() {
+        val month = java.time.YearMonth.of(2026, 10)
+        assertEquals("Oktober 2026", DateFormatter.formatMonthYear(month))
+    }
 }

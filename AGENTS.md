@@ -57,9 +57,9 @@ Setelah M3 selesai, pola `ui/feature/form/` menjadi acuan struktur, penamaan, da
 
 ## Status proyek
 Isi/perbarui bagian ini di akhir tiap sesi:
-- Milestone selesai: M1, M2, M3, M4 (M4a, M4b), M7
-- Sedang dikerjakan: Siap lanjut ke M5 (Layar Beranda)
-- Catatan/keputusan penting: M4b (detail transaksi dan konfirmasi hapus) selesai dan lolos semua 93 unit test. Argumen rute diambil via SavedStateHandle.get<Long>("transactionId"). Intersepsi state null pada saat proses delete agar tidak flash ke NotFound sebelum popBackStack.
+- Milestone selesai: M1, M2, M3, M4 (M4a, M4b), M5 (M5a, M5b), M7
+- Sedang dikerjakan: Siap lanjut ke M6 (Statistik)
+- Catatan/keputusan penting: M5 (Beranda) selesai. HomeScreen terhubung dengan NavHost, navigasi antar tab tersinkronisasi, dan lolos seluruh unit test.
 
 ## Lingkungan kerja
 - Kode ditulis lewat agent di Antigravity; aplikasi dijalankan, di-sync, dan diuji manusia di **Android Studio** (proyek yang sama, folder yang sama).

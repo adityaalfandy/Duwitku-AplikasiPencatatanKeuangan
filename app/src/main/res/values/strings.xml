@@ -91,6 +91,9 @@
 
     <!-- Statistik -->
     <string name="stats_total_expense">Total pengeluaran</string>
+    <string name="expense_by_category">Pengeluaran per kategori</string>
+    <string name="previous_month">Bulan sebelumnya</string>
+    <string name="next_month">Bulan selanjutnya</string>
 
     <!-- Kurs -->
     <string name="rates_input_label">Nominal Rupiah</string>

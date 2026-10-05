@@ -57,9 +57,9 @@ Setelah M3 selesai, pola `ui/feature/form/` menjadi acuan struktur, penamaan, da
 
 ## Status proyek
 Isi/perbarui bagian ini di akhir tiap sesi:
-- Milestone selesai: M1, M2, M3, M4 (M4a, M4b), M5 (M5a, M5b), M7
-- Sedang dikerjakan: Siap lanjut ke M6 (Statistik)
-- Catatan/keputusan penting: M5 (Beranda) selesai. HomeScreen terhubung dengan NavHost, navigasi antar tab tersinkronisasi, dan lolos seluruh unit test.
+- Milestone selesai: M1, M2, M3, M4 (M4a, M4b), M5 (M5a, M5b), M6 (M6a, M6b), M7
+- Sedang dikerjakan: Siap lanjut ke M8 (Polishing)
+- Catatan/keputusan penting: M6 (Statistik) selesai. StatsScreen, MonthSelector, CategoryTotalItem terhubung dengan NavHost, dan lolos seluruh unit test (107 tests pass).
 
 ## Lingkungan kerja
 - Kode ditulis lewat agent di Antigravity; aplikasi dijalankan, di-sync, dan diuji manusia di **Android Studio** (proyek yang sama, folder yang sama).

@@ -32,6 +32,7 @@ import com.pemmob.duwitku.ui.feature.detail.TransactionDetailScreen
 import com.pemmob.duwitku.ui.feature.form.TransactionFormScreen
 import com.pemmob.duwitku.ui.feature.home.HomeScreen
 import com.pemmob.duwitku.ui.feature.rates.RatesScreen
+import com.pemmob.duwitku.ui.feature.stats.StatsScreen
 import com.pemmob.duwitku.ui.feature.transactions.TransactionListScreen
 import com.pemmob.duwitku.ui.theme.LocalSpacing
 import com.pemmob.duwitku.util.CurrencyFormatter
@@ -119,7 +120,7 @@ private fun NavGraphBuilder.transactionsScreen(
 
 private fun NavGraphBuilder.statsScreen() {
     composable<StatsRoute> {
-        PlaceholderScreen(title = stringResource(R.string.nav_stats))
+        StatsScreen()
     }
 }
 
